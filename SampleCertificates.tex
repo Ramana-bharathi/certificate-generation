@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+%------% Margin and paper setup--------
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+%-----------------------------------------------------
+%........%Calligraphic font
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace} 
+%-----------------------------------------------------
+%.........%Background design
+\usepackage{wallpaper}
+%-----------------------------------------------------
+%.........%Data from comma separated version file
+\usepackage{datatool}
+\DTLloaddb{data}{final-data-participants.csv}
+
+%\setmainfont{[SF-Pro-Text-Semibold.otf]}
+%\setmainfont{SF Pro Text}
+
+
+\setmainfont{SF-Pro-Text}[
+    Path=./fonts/SFfonts/,
+    Extension = .otf,
+    UprightFont=*-Regular,
+    BoldFont=*-Semibold,
+    ItalicFont=*-RegularItalic,
+    BoldItalicFont=*-SemiboldItalic
+    ]
+
+\begin{document}
+\linespread{1.3} %\selectfont
+\pagestyle{empty}
+\TileWallPaper{1\paperwidth}{1\paperheight}{Participation-Certificate-BG.png}
+%=============================
+% data column placeholders from the CSV file (values should match the column      % headers in the CSV file)
+\DTLforeach{data}{
+\name=Name, \mail=Email, \inst=College}{
+%=============================
+% \vspace{1 cm}
+% \begin{center}
+% \Huge{\textbf{CERTIFICATE}} \\ \LARGE{OF PARTICIPATION}
+% \end{center}
+
+\vspace*{7 cm}
+\begin{spacing}{1.0}
+\begin{center}
+
+\Huge{\textbf{\name}} \\
+\textcolor{gray}{\Large{\textit{\mail}}} \\
+\textcolor{gray}{\Large{\inst}} \\
+
+\end{center}
+\end{spacing}
+
+
+% \vspace{5 cm}
+% \Large{THIS CERTIFICATE IS AWARDED TO} \\
+% \vspace{0.5 cm}
+
+
+% \begin{center}
+% \begin{spacing}{1.25}
+%     \large For enthusiastic participation in \textbf{Madurai Hackathon 2022} \\ conducted in \textbf{Solamalai College of Engineering}, Madurai\\
+% between 12th August to 14th August 2022,
+% \\by \textbf{Madurai Tech community}. \\
+% \end{spacing}
+% \Large \textit{Congratulations!}
+% \end{center}
+
+% \vspace{0.7 cm}
+% \begin{center}
+% % \textbf{\textit{Organized by}}
+% \end{center}
+% \begin{center}
+% \includegraphics[scale=0.25]{logo.jpg.png} \\
+% Madurai Tech \\ community
+% \end{center}
+
+% \vspace{5mm}
+% \hfill
+% % \hspace{5mm}
+% \begin{tabbing}
+% \hspace{0.7in}\=\hspace{2.0in}\=\hspace{2.2in} \=\kill
+            
+% \>\textbf{Date}\> \hspace{5mm}
+% \begin{center}
+% \includegraphics[scale=0.25]{logo.jpg.png}
+% \end{center}  \>        \textbf{Trustee} \\
+
+% \> \>\begin{center}
+%      Madurai Tech
+%  \end{center} \> \\
+% \> \>
+%      \hspace{2mm}Community \> \\
+% \end{tabbing} 
+\newpage
+}
+\end{document} 
